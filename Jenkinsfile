@@ -21,7 +21,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        git(url: 'https://github.com/ys-lin/spring-petclinic', branch: 'gh-pages', changelog: true, credentialsId: 'ys-lin')
+        git 'https://github.com/ys-lin/spring-petclinic'
       }
     }
 
