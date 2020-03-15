@@ -21,7 +21,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        git 'https://github.com/ys-lin/spring-petclinic'
+        git(url: 'https://github.com/ys-lin/spring-petclinic', branch: 'question1')
       }
     }
 
