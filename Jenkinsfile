@@ -24,7 +24,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        echo 'Deploying'
+        sh './mvnw deploy'
       }
     }
 
