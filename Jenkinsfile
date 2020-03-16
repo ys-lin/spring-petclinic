@@ -25,6 +25,7 @@ pipeline {
       }
       steps {
         sh './mvnw deploy'
+        emailext(subject: 'Email Notification Demo', body: 'Email notification from Jenkins', attachLog: true)
       }
     }
 
