@@ -20,9 +20,18 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        git(url: 'https://github.com/ys-lin/spring-petclinic', branch: 'gh-pages', changelog: true, credentialsId: 'ys-lin')
+      when {
+        branch 'master'
       }
+      steps {
+        sh './mvnw deploy'
+      }
+    }
+
+  }
+  post {
+    success {
+      mail(to: 'yunshi.lin8@gmail.com', subject: "Sucess: ${currentBuild.fullDisplayName}", body: "The pipeline ${currentBuild.fullDisplayName} completed successfully.")
     }
 
   }
